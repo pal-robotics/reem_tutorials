@@ -6,5 +6,10 @@
   <license>Modified BSD</license>
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/reem_tutorials</url>
-<!--   <depend package="reem_arm_navigation"/> -->
+
+  <depend package="actionlib"/>
+  <depend package="control_msgs"/>
+  <depend package="reem_arm_navigation"/>
+  <depend package="roscpp"/>
+
 </package>
