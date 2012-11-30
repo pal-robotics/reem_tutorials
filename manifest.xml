@@ -1,0 +1,10 @@
+<package>
+  <description brief="REEM tutorials.">
+    Basic tutorials to get familiar with the REEM robot in a simulated environment.
+  </description>
+  <author>Adolfo Rodriguez Tsouroukdissian, Jordi Pages</author>
+  <license>Modified BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/reem_tutorials</url>
+<!--   <depend package="reem_arm_navigation"/> -->
+</package>
