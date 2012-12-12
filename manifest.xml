@@ -11,5 +11,13 @@
   <depend package="control_msgs"/>
   <depend package="reem_arm_navigation"/>
   <depend package="roscpp"/>
+  <depend package="opencv2"/>
+  <depend package="cv_bridge"/>
+  <depend package="pr2_controllers_msgs"/>
+
+  <depend package="gazebo"/>
+  <export>
+    <gazebo gazebo_media_path="${prefix}" />
+  </export>
 
 </package>

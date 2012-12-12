@@ -1,0 +1,11 @@
+<launch>
+
+  <!-- start up empty world -->
+  <include file="$(find reem_gazebo)/launch/reem_empty_world.launch"/>
+
+  <!-- Add wall with texture in front of REEM -->
+  <param name="wall_with_reem_photo" textfile="$(find reem_tutorials)/worlds/objects/wallWithREEMphoto.urdf" />
+  <node name="spawn_wall_with_reem_photo" pkg="gazebo" type="spawn_model" args="-urdf -param wall_with_reem_photo -model wallWithREEMphoto -x 2.0 -y 0.0 -z 1.05" respawn="false" />
+  
+</launch>
+

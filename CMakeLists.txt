@@ -10,6 +10,7 @@ set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 
 rosbuild_add_executable(init_pose                       src/init_pose.cpp)
+rosbuild_add_executable(look_to_point                   src/look_to_point.cpp)
 rosbuild_add_executable(move_right_arm_joint_goal       src/move_right_arm_joint_goal.cpp)
 rosbuild_add_executable(move_left_arm_joint_goal        src/move_left_arm_joint_goal.cpp)
 rosbuild_add_executable(move_right_arm_simple_pose_goal src/move_right_arm_simple_pose_goal.cpp)
