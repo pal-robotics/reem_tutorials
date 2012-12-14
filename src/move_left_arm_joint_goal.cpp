@@ -91,13 +91,13 @@ int main(int argc, char **argv)
     goal.motion_plan_request.goal_constraints.joint_constraints[i].tolerance_above = 0.05;
   }
 
-  goal.motion_plan_request.goal_constraints.joint_constraints[0].position =  1.57;
-  goal.motion_plan_request.goal_constraints.joint_constraints[1].position =  0.0;
-  goal.motion_plan_request.goal_constraints.joint_constraints[2].position = -1.5708;
+  goal.motion_plan_request.goal_constraints.joint_constraints[0].position =  1.7;
+  goal.motion_plan_request.goal_constraints.joint_constraints[1].position = -0.1;
+  goal.motion_plan_request.goal_constraints.joint_constraints[2].position = -1.7;
   goal.motion_plan_request.goal_constraints.joint_constraints[3].position =  1.5708;
-  goal.motion_plan_request.goal_constraints.joint_constraints[4].position = 0.0;
-  goal.motion_plan_request.goal_constraints.joint_constraints[5].position = 0.0;
-  goal.motion_plan_request.goal_constraints.joint_constraints[6].position = 0.0;
+  goal.motion_plan_request.goal_constraints.joint_constraints[4].position =  0.0;
+  goal.motion_plan_request.goal_constraints.joint_constraints[5].position =  0.0;
+  goal.motion_plan_request.goal_constraints.joint_constraints[6].position =  0.0;
 
   // Send motion plan request
   if (nh.ok())
