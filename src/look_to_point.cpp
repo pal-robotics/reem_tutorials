@@ -69,7 +69,6 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// Name of the vindow showing images from REEM
 static const std::string windowName      = "REEM left eye";
 static const std::string cameraFrame     = "/stereo_optical_frame";
 static const std::string imageTopic      = "/stereo/left/image";

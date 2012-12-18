@@ -9,4 +9,5 @@
   <depend stack="reem_arm_navigation" />
   <depend stack="control" />
   <depend stack="ros" />
+  <depend stack="vision_opencv" />
 </stack>
