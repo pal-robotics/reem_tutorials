@@ -15,7 +15,8 @@
   <depend package="reem_arm_navigation"/>
   <depend package="roscpp"/>
   <depend package="sensor_msgs"/>
-
+  <depend package="reem_gazebo"/>
+  <depend package="reem_gazebo_2dnav"/>
   <export>
     <gazebo gazebo_media_path="${prefix}" />
   </export>
