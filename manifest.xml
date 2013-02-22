@@ -17,9 +17,10 @@
   <depend package="roscpp"/>
   <depend package="sensor_msgs"/>
   <depend package="reem_gazebo"/>
-  <depend package="reem_gazebo_2dnav"/>
+  <depend package="reem_gazebo_2dnav"/>  
   <export>
     <gazebo gazebo_media_path="${prefix}" />
   </export>
+  <depend package="pal_camera_client"/>
 
 </package>

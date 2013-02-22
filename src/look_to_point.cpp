@@ -34,19 +34,24 @@
 
 /** \author Jordi Pages. */
 
-// How to test this application:
-//
-// 1) Launch a simulation of REEM
-//
-//   $ roslaunch reem_tutorials reem_look_to_point_world.launch
-//
-// 2) Launch the application:
-//
-//   $ rosrun reem_tutorials look_to_point
-//
-// 3) Click on image pixels to make REEM look towards that direction
-//
-//
+/**
+ * @file
+ *
+ * @brief example on how to subscribe to an image topic and how to make the robot look towards a given direction
+ *
+ * How to test this application:
+ *
+ * 1) Launch a simulation of REEM
+ *
+ *   $ roslaunch reem_tutorials reem_look_to_point_world.launch
+ *
+ * 2) Launch the application:
+ *
+ *   $ rosrun reem_tutorials look_to_point
+ *
+ * 3) Click on image pixels to make REEM look towards that direction
+ *
+ */
 
 // C++ standard headers
 #include <exception>
