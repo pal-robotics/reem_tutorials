@@ -122,7 +122,9 @@ void onMouse( int event, int u, int v, int, void* )
   pointStamped.point.y = y * Z;
   pointStamped.point.z = Z;   
 
+  //build the action goal
   pr2_controllers_msgs::PointHeadGoal goal;
+  //the goal consists in making the Z axis of the cameraFrame to point towards the pointStamped
   goal.pointing_frame = cameraFrame;
   goal.pointing_axis.x = 0.0;
   goal.pointing_axis.y = 0.0;
