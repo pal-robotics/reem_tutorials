@@ -38,8 +38,9 @@
 
 #include <cassert>
 #include <iostream>
-
+#include <sstream>
 #include <boost/foreach.hpp>
+#include <boost/lexical_cast.hpp>
 #include <boost/shared_ptr.hpp>
 
 #include <ros/ros.h>
@@ -142,7 +143,7 @@ bool MoveJointGroup::sendGoal(const std::vector<double>& pose, const ros::Durati
 class ReachPose
 {
 public:
-  ReachPose(ros::NodeHandle& nh);
+  ReachPose(std::vector<std::string> controller_list, ros::NodeHandle& nh);
 
   /// \brief Send pose goal request and \e block until execution completes.
   /// \param pose Name of pose to execute.
@@ -156,13 +157,18 @@ private:
   std::vector<MoveJointGroupPtr> move_joint_groups_;
 };
 
-ReachPose::ReachPose(ros::NodeHandle& nh)
+ReachPose::ReachPose(std::vector<std::string> controller_list, ros::NodeHandle& nh)
   : nh_(nh)
 {
-  // REEM-specific joint groups
-  move_joint_groups_.push_back(MoveJointGroupPtr(new MoveJointGroup("right_arm_torso_controller")));
-  move_joint_groups_.push_back(MoveJointGroupPtr(new MoveJointGroup("left_arm_controller")));
-  move_joint_groups_.push_back(MoveJointGroupPtr(new MoveJointGroup("head_traj_controller")));
+  if (controller_list.empty())
+  {
+    ROS_ERROR("Cannot initialize ReachPose instance, empty controller list provided.");
+    throw;
+  }
+  BOOST_FOREACH(const std::string& controller_name, controller_list)
+  {
+    move_joint_groups_.push_back(MoveJointGroupPtr(new MoveJointGroup(controller_name)));
+  }
 }
 
 bool ReachPose::run(const std::string& pose, const ros::Duration& duration)
@@ -261,15 +267,37 @@ int main(int argc, char** argv)
   // Init the ROS node
   ros::init(argc, argv, "reach_pose");
 
-  // Precondition: Pose name is provided as argument
-  if (2 != argc)
+  // Precondition: Pose name and (optionally) duration are provided as arguments
+  std::string motion_name;
+  const double default_duration = 5.0;
+  double motion_duration = default_duration;
+  std::ostringstream usage;
+  usage << "Usage: " << argv[0] << " pose_name [duration]\n"
+        << "  where\n"
+        << "  - \'pose_name\' is the name of a pose currently registered in the parameter server.\n"
+        << "  - \'duration\' is the motion duration (in s). If unspecified, " << default_duration << "s will be used.";
+  if (2 != argc && 3 != argc)
   {
-    std::cout << "Usage: " << argv[0] << " <pose_name>" << std::endl;
+    std::cout << usage.str() << std::endl;
     return EXIT_FAILURE;
   }
 
+  if (3 == argc)
+  {
+    try
+    {
+      motion_duration = boost::lexical_cast<double>(argv[2]);
+    }
+    catch(boost::bad_lexical_cast &)
+    {
+      std::cout << usage.str() << std::endl;
+      return EXIT_FAILURE;
+    }
+  }
+  motion_name = argv[1];
+
   // Node handle scoped to where the poses are specified
-  ros::NodeHandle nh("/poses");
+  ros::NodeHandle nh_poses("~/poses");
 
   // Precondition: Valid clock
   if (!ros::Time::waitForValid(ros::WallDuration(5.0))) // NOTE: Important when using simulated clock
@@ -278,7 +306,36 @@ int main(int argc, char** argv)
     return EXIT_FAILURE;
   }
 
-  // 
-  ReachPose reach_pose(nh);
-  return reach_pose.run(argv[1], ros::Duration(2.0)) ? EXIT_SUCCESS : EXIT_FAILURE;
+  // Controller names
+  std::vector<std::string> controller_list;
+
+  using namespace XmlRpc;
+  XmlRpcValue controller_names;
+  ros::NodeHandle nh_controllers("~");
+  if (!nh_controllers.getParam("controllers", controller_names))
+  {
+    ROS_ERROR("No controllers given. (namespace: %s)", nh_controllers.getNamespace().c_str());
+    return false;
+  }
+  if (controller_names.getType() != XmlRpcValue::TypeArray)
+  {
+    ROS_ERROR("Malformed controller specification.  (namespace: %s)", nh_controllers.getNamespace().c_str());
+    return false;
+  }
+  for (int i = 0; i < controller_names.size(); ++i)
+  {
+    XmlRpcValue &name_value = controller_names[i];
+    if (name_value.getType() != XmlRpcValue::TypeString)
+    {
+      ROS_ERROR("Array of controller names should contain all strings.  (namespace: %s)",
+                nh_controllers.getNamespace().c_str());
+      return false;
+    }
+    controller_list.push_back(static_cast<std::string>(name_value));
+  }
+
+  // Send motion execution request
+  ReachPose reach_pose(controller_list, nh_poses);
+
+  return reach_pose.run(motion_name, ros::Duration(motion_duration)) ? EXIT_SUCCESS : EXIT_FAILURE;
 }

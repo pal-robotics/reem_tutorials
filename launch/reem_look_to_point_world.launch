@@ -1,11 +1,12 @@
 <launch>
+  <arg name="gzworld" default="empty.world"/>
+  <param name="/use_sim_time" type="bool" value="true"/>
 
-  <!-- start up empty world -->
-  <include file="$(find reem_gazebo)/launch/reem_empty_world.launch"/>
+  <!-- start gazebo -->
+  <node name="gazebo" pkg="reem_gazebo" type="run_gazebo" args="$(find reem_tutorials)/worlds/world_wall_REEM_photo.world" output="screen" />
 
-  <!-- Add wall with texture in front of REEM -->
-  <param name="wall_with_reem_photo" textfile="$(find reem_tutorials)/worlds/objects/wallWithREEMphoto.urdf" />
-  <node name="spawn_wall_with_reem_photo" pkg="gazebo" type="spawn_model" args="-urdf -param wall_with_reem_photo -model wallWithREEMphoto -x 2.0 -y 0.0 -z 1.05" respawn="false" />
-  
+  <!-- start REEM robot -->
+  <include file="$(find reem_gazebo)/launch/reem.launch"/>
 </launch>
+
 

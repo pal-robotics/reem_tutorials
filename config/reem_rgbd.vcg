@@ -115,7 +115,7 @@ Particles.Enabled=0
 Particles.Topic=/particlecloud
 Property\ Grid\ Splitter=776,78
 Property\ Grid\ State=expanded=.Global Options;splitterratio=0.6
-QMainWindow=000000ff00000000fd00000003000000000000018d00000395fc0200000004fb000000100044006900730070006c006100790073010000002a00000395000000da01000005fb0000000c00430061006d0065007200610000000280000001460000000000000000fb00000010004c006500660074002000650079006500000002ec000000d30000000000000000fb0000001200520069006700680074002000650079006500000002f0000000cf0000001c01000005000000010000013100000395fc0200000003fb0000001e0054006f006f006c002000500072006f0070006500720074006900650073010000002a000000f80000006801000005fb0000000a0056006900650077007301000001250000019f000000a601000005fb0000001200530065006c0065006300740069006f006e01000002c7000000f8000000680100000500000003000005f40000003dfc0100000001fb0000000800540069006d00650100000000000005f40000021501000005000003300000039500000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+QMainWindow=000000ff00000000fd00000003000000000000018d00000395fc0200000005fb000000100044006900730070006c006100790073010000002a00000395000000da01000005fb0000000c00430061006d0065007200610000000280000001460000000000000000fb00000010004c006500660074002000650079006500000002ec000000d30000000000000000fb0000001200520069006700680074002000650079006500000002f0000000cf0000000000000000fb000000160052004700420044002000630061006d00650072006100000002f4000000cb0000001c01000005000000010000013100000395fc0200000003fb0000001e0054006f006f006c002000500072006f0070006500720074006900650073010000002a000000f80000006801000005fb0000000a0056006900650077007301000001250000019f000000a601000005fb0000001200530065006c0065006300740069006f006e01000002c7000000f8000000680100000500000003000005fc0000003dfc0100000001fb0000000800540069006d00650100000000000005fc0000021501000005000003380000039500000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
 REEM.Alpha=1
 REEM.Collision\ Enabled=0
 REEM.Enabled=1
@@ -123,14 +123,43 @@ REEM.Robot\ Description=robot_description
 REEM.TF\ Prefix=
 REEM.Update\ Interval=0
 REEM.Visual\ Enabled=1
-Right\ eye.Enabled=0
-Right\ eye.Image\ Rendering=background & overlay
-Right\ eye.Image\ Topic=/stereo/right/image
-Right\ eye.Overlay\ Alpha=0.5
-Right\ eye.Point\ Head\ Action\ Topic=/head_traj_controller/point_head_action/goal
-Right\ eye.Queue\ Size=2
-Right\ eye.Transport\ Hint=raw
-Right\ eye.Zoom\ Factor=1
+RGBD\ camera.Enabled=0
+RGBD\ camera.Image\ Rendering=background & overlay
+RGBD\ camera.Image\ Topic=/head_mount_xtion/rgb/image_raw
+RGBD\ camera.Overlay\ Alpha=0.5
+RGBD\ camera.Point\ Head\ Action\ Topic=/head_traj_controller/point_head_action/goal
+RGBD\ camera.Queue\ Size=2
+RGBD\ camera.Transport\ Hint=raw
+RGBD\ camera.Zoom\ Factor=1
+RGBD\ point\ cloud..AxisColorAutocompute\ Value\ Bounds=1
+RGBD\ point\ cloud..AxisColorAxis=2
+RGBD\ point\ cloud..AxisColorMax\ Value=10
+RGBD\ point\ cloud..AxisColorMin\ Value=-10
+RGBD\ point\ cloud..AxisColorUse\ Fixed\ Frame=1
+RGBD\ point\ cloud..FlatColorColorB=1
+RGBD\ point\ cloud..FlatColorColorG=1
+RGBD\ point\ cloud..FlatColorColorR=1
+RGBD\ point\ cloud..IntensityAutocompute\ Intensity\ Bounds=1
+RGBD\ point\ cloud..IntensityChannel\ Name=intensity
+RGBD\ point\ cloud..IntensityMax\ ColorB=1
+RGBD\ point\ cloud..IntensityMax\ ColorG=1
+RGBD\ point\ cloud..IntensityMax\ ColorR=1
+RGBD\ point\ cloud..IntensityMax\ Intensity=4096
+RGBD\ point\ cloud..IntensityMin\ ColorB=0
+RGBD\ point\ cloud..IntensityMin\ ColorG=0
+RGBD\ point\ cloud..IntensityMin\ ColorR=0
+RGBD\ point\ cloud..IntensityMin\ Intensity=0
+RGBD\ point\ cloud..IntensityUse\ full\ RGB\ spectrum=0
+RGBD\ point\ cloud.Alpha=1
+RGBD\ point\ cloud.Billboard\ Size=0.01
+RGBD\ point\ cloud.Color\ Transformer=RGB8
+RGBD\ point\ cloud.Decay\ Time=0
+RGBD\ point\ cloud.Enabled=0
+RGBD\ point\ cloud.Position\ Transformer=XYZ
+RGBD\ point\ cloud.Queue\ Size=10
+RGBD\ point\ cloud.Selectable=1
+RGBD\ point\ cloud.Style=1
+RGBD\ point\ cloud.Topic=/head_mount_xtion/rgb/points
 Robot\:\ REEM\ Link\ arm_left_1_linkAlpha=1
 Robot\:\ REEM\ Link\ arm_left_1_linkEnabled=1
 Robot\:\ REEM\ Link\ arm_left_1_linkShow\ Axes=0
@@ -315,6 +344,10 @@ Robot\:\ REEM\ Link\ head_2_linkAlpha=1
 Robot\:\ REEM\ Link\ head_2_linkEnabled=1
 Robot\:\ REEM\ Link\ head_2_linkShow\ Axes=0
 Robot\:\ REEM\ Link\ head_2_linkShow\ Trail=0
+Robot\:\ REEM\ Link\ head_mount_xtion_frameAlpha=1
+Robot\:\ REEM\ Link\ head_mount_xtion_frameEnabled=1
+Robot\:\ REEM\ Link\ head_mount_xtion_frameShow\ Axes=0
+Robot\:\ REEM\ Link\ head_mount_xtion_frameShow\ Trail=0
 Robot\:\ REEM\ Link\ stereo_gazebo_l_stereo_camera_frameAlpha=1
 Robot\:\ REEM\ Link\ stereo_gazebo_l_stereo_camera_frameEnabled=1
 Robot\:\ REEM\ Link\ stereo_gazebo_l_stereo_camera_frameShow\ Axes=0
@@ -369,11 +402,14 @@ ClassName=rviz::RobotModelDisplay
 Name=REEM
 [Display10]
 ClassName=rviz::PathDisplay
-Name=Global plan
+Name=Local plan
 [Display11]
+ClassName=rviz::PathDisplay
+Name=Global plan
+[Display12]
 ClassName=rviz::PoseArrayDisplay
 Name=Particles
-[Display12]
+[Display13]
 ClassName=rviz::MapDisplay
 Name=Map
 [Display2]
@@ -381,27 +417,27 @@ ClassName=rviz::TFDisplay
 Name=TF
 [Display3]
 ClassName=pr2_interactive_manipulation::PointHeadCameraDisplay
-Name=Right eye
+Name=RGBD camera
 [Display4]
-ClassName=rviz::LaserScanDisplay
-Name=Front laser
+ClassName=rviz::PointCloud2Display
+Name=RGBD point cloud
 [Display5]
 ClassName=rviz::LaserScanDisplay
-Name=Inclined laser
+Name=Front laser
 [Display6]
-ClassName=rviz::RangeDisplay
-Name=Base sonars
+ClassName=rviz::LaserScanDisplay
+Name=Inclined laser
 [Display7]
 ClassName=rviz::RangeDisplay
-Name=Torso sonars
+Name=Base sonars
 [Display8]
 ClassName=rviz::RangeDisplay
-Name=Base IR
+Name=Torso sonars
 [Display9]
-ClassName=rviz::PathDisplay
-Name=Local plan
+ClassName=rviz::RangeDisplay
+Name=Base IR
 [Window]
 Height=1050
-Width=1528
+Width=1536
 X=1463
 Y=-74
