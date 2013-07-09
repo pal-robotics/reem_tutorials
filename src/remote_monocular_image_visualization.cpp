@@ -47,6 +47,7 @@
 
 // ROS headers
 #include <ros/ros.h>
+#include <sensor_msgs/CameraInfo.h>
 
 // OpenCV headers
 #include <opencv2/core/core.hpp>
