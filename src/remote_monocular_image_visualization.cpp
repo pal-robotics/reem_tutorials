@@ -48,6 +48,7 @@
 // ROS headers
 #include <ros/ros.h>
 #include <sensor_msgs/CameraInfo.h>
+#include <cv_bridge/cv_bridge.h>
 
 // OpenCV headers
 #include <opencv2/core/core.hpp>
@@ -85,9 +86,9 @@ void printCalibrationData(const sensor_msgs::CameraInfo& camInfo)
 int main(int argc, char** argv)
 {
   // Init the ROS node
-  ros::init(argc, argv, "remove_monocular_image_visualization");
+  ros::init(argc, argv, "remote_monocular_image_visualization");
 
-  ROS_INFO("Starting remove_monocular_image_visualization application ...");
+  ROS_INFO("Starting remote_monocular_image_visualization application ...");
 
   // Precondition: Valid clock
   ros::NodeHandle nh;
