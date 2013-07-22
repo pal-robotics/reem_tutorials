@@ -85,9 +85,9 @@ void printCalibrationData(const std::string& eye, const sensor_msgs::CameraInfo&
 int main(int argc, char** argv)
 {
   // Init the ROS node
-  ros::init(argc, argv, "remove_monocular_image_visualization");
+  ros::init(argc, argv, "remove_stereo_image_visualization");
 
-  ROS_INFO("Starting remove_monocular_image_visualization application ...");
+  ROS_INFO("Starting remove_stereo_image_visualization application ...");
 
   // Precondition: Valid clock
   ros::NodeHandle nh;
@@ -104,7 +104,7 @@ int main(int argc, char** argv)
                                     "/stereo/right/image",                 //right image topic name
                                     pal::StereoCameraClient::JPEG,         //image transport type. Choose between RAW (uncompressed) and JPEG
                                     pal::StereoCameraClient::APPROX_TIME,  //topics synchronization policy
-                                    1.0,                                   //timeout in seconds attempting to get data from topics
+                                    5.0,                                   //timeout in seconds attempting to get data from topics
                                     static_cast<float>(frequency*2),       //max rate at which images may be polled
                                     "/stereo/left/camera_info",            //left camera info topic name
                                     "/stereo/right/camera_info");          //right camera info topic name
