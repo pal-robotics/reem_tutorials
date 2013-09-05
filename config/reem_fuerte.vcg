@@ -22,9 +22,15 @@ Base\ sonars\ 2.ColorG=1
 Base\ sonars\ 2.ColorR=0.494118
 Base\ sonars\ 2.Enabled=0
 Base\ sonars\ 2.Topic=/sonar_base_2
-Camera\ Config=0.0798002 0.56219 5.1999 0.239568 -0.00384917 0.782353
+Camera\ Config=1.5348 4.72854 7.46998 -0.339085 -1.224 1.94206
 Camera\ Type=rviz::OrbitViewController
 Fixed\ Frame=/base_link
+Footprint.Alpha=1
+Footprint.ColorB=0
+Footprint.ColorG=1
+Footprint.ColorR=0.1
+Footprint.Enabled=0
+Footprint.Topic=/move_base/local_costmap/robot_footprint
 Front\ laser..AxisColorAutocompute\ Value\ Bounds=1
 Front\ laser..AxisColorAxis=0
 Front\ laser..AxisColorMax\ Value=19.0655
@@ -60,6 +66,17 @@ Global\ plan.ColorG=1
 Global\ plan.ColorR=0.1
 Global\ plan.Enabled=0
 Global\ plan.Topic=/move_base/PalLocalPlanner/global_plan
+Goal.Alpha=1
+Goal.ColorB=0
+Goal.ColorG=0.1
+Goal.ColorR=1
+Goal.Enabled=0
+Goal.Head\ Length=0.3
+Goal.Head\ Radius=0.2
+Goal.Shaft\ Length=1
+Goal.Shaft\ Radius=0.1
+Goal.Shape=0
+Goal.Topic=/move_base_simple/goal
 Grid.Alpha=0.5
 Grid.Cell\ Size=0.75
 Grid.ColorB=0.5
@@ -362,6 +379,35 @@ Robot\:\ REEM\ Link\ wheel_right_linkAlpha=1
 Robot\:\ REEM\ Link\ wheel_right_linkEnabled=1
 Robot\:\ REEM\ Link\ wheel_right_linkShow\ Axes=0
 Robot\:\ REEM\ Link\ wheel_right_linkShow\ Trail=0
+Sonar\ Cloud..AxisColorAutocompute\ Value\ Bounds=1
+Sonar\ Cloud..AxisColorAxis=2
+Sonar\ Cloud..AxisColorMax\ Value=10
+Sonar\ Cloud..AxisColorMin\ Value=-10
+Sonar\ Cloud..AxisColorUse\ Fixed\ Frame=1
+Sonar\ Cloud..FlatColorColorB=0.498039
+Sonar\ Cloud..FlatColorColorG=0.666667
+Sonar\ Cloud..FlatColorColorR=0
+Sonar\ Cloud..IntensityAutocompute\ Intensity\ Bounds=1
+Sonar\ Cloud..IntensityChannel\ Name=intensity
+Sonar\ Cloud..IntensityMax\ ColorB=1
+Sonar\ Cloud..IntensityMax\ ColorG=1
+Sonar\ Cloud..IntensityMax\ ColorR=1
+Sonar\ Cloud..IntensityMax\ Intensity=4096
+Sonar\ Cloud..IntensityMin\ ColorB=0
+Sonar\ Cloud..IntensityMin\ ColorG=0
+Sonar\ Cloud..IntensityMin\ ColorR=0
+Sonar\ Cloud..IntensityMin\ Intensity=0
+Sonar\ Cloud..IntensityUse\ full\ RGB\ spectrum=0
+Sonar\ Cloud.Alpha=1
+Sonar\ Cloud.Billboard\ Size=0.1
+Sonar\ Cloud.Color\ Transformer=FlatColor
+Sonar\ Cloud.Decay\ Time=0
+Sonar\ Cloud.Enabled=0
+Sonar\ Cloud.Position\ Transformer=XYZ
+Sonar\ Cloud.Queue\ Size=10
+Sonar\ Cloud.Selectable=1
+Sonar\ Cloud.Style=2
+Sonar\ Cloud.Topic=/sonar_cloud
 TF.All\ Enabled=0
 TF.Enabled=0
 TF.Frame\ Timeout=15
@@ -387,49 +433,58 @@ Name=Grid
 ClassName=rviz::RobotModelDisplay
 Name=REEM
 [Display10]
+ClassName=rviz::RangeDisplay
+Name=Base IR
+[Display11]
+ClassName=rviz::PointCloud2Display
+Name=Sonar Cloud
+[Display12]
 ClassName=rviz::PathDisplay
 Name=Local plan
-[Display11]
+[Display13]
 ClassName=rviz::PathDisplay
 Name=Global plan
-[Display12]
+[Display14]
+ClassName=rviz::PoseDisplay
+Name=Goal
+[Display15]
 ClassName=rviz::PoseArrayDisplay
 Name=Particles
-[Display13]
+[Display16]
 ClassName=rviz::MapDisplay
 Name=Map
-[Display14]
+[Display17]
 ClassName=rviz::GridCellsDisplay
 Name=Obstacles Costmap
-[Display15]
+[Display18]
 ClassName=rviz::GridCellsDisplay
 Name=Inflated Costmap
 [Display2]
+ClassName=rviz::PolygonDisplay
+Name=Footprint
+[Display3]
 ClassName=rviz::TFDisplay
 Name=TF
-[Display3]
+[Display4]
 ClassName=pr2_interactive_manipulation::PointHeadCameraDisplay
 Name=Right eye
-[Display4]
-ClassName=rviz::LaserScanDisplay
-Name=Front laser
 [Display5]
 ClassName=rviz::LaserScanDisplay
-Name=Inclined laser
+Name=Front laser
 [Display6]
-ClassName=rviz::RangeDisplay
-Name=Base sonars 1
+ClassName=rviz::LaserScanDisplay
+Name=Inclined laser
 [Display7]
 ClassName=rviz::RangeDisplay
-Name=Base sonars 2
+Name=Base sonars 1
 [Display8]
 ClassName=rviz::RangeDisplay
-Name=Torso sonars
+Name=Base sonars 2
 [Display9]
 ClassName=rviz::RangeDisplay
-Name=Base IR
+Name=Torso sonars
 [Window]
 Height=1026
 Width=1615
-X=1402
-Y=-102
+X=1401
+Y=-130
