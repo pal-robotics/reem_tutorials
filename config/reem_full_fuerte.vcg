@@ -22,8 +22,8 @@ Base\ sonars\ 2.ColorG=1
 Base\ sonars\ 2.ColorR=0.494118
 Base\ sonars\ 2.Enabled=0
 Base\ sonars\ 2.Topic=/sonar_base_2
-Camera\ Config=0.584797 1.52168 15.1852 -5.99638 0.884355 1.18344e-05
-Camera\ Type=rviz::XYOrbitViewController
+Camera\ Config=45.9916 1.57995 -4.37721 -0.0250001
+Camera\ Type=rviz::FixedOrientationOrthoViewController
 Costmap\ SH..AxisColorAutocompute\ Value\ Bounds=1
 Costmap\ SH..AxisColorAxis=2
 Costmap\ SH..AxisColorMax\ Value=10
@@ -585,24 +585,63 @@ Torso\ sonars.ColorG=1
 Torso\ sonars.ColorR=0.498039
 Torso\ sonars.Enabled=0
 Torso\ sonars.Topic=/sonar_torso
+VO\ Cloud..AxisColorAutocompute\ Value\ Bounds=1
+VO\ Cloud..AxisColorAxis=2
+VO\ Cloud..AxisColorMax\ Value=10
+VO\ Cloud..AxisColorMin\ Value=-10
+VO\ Cloud..AxisColorUse\ Fixed\ Frame=1
+VO\ Cloud..FlatColorColorB=1
+VO\ Cloud..FlatColorColorG=1
+VO\ Cloud..FlatColorColorR=1
+VO\ Cloud..IntensityAutocompute\ Intensity\ Bounds=1
+VO\ Cloud..IntensityChannel\ Name=intensity
+VO\ Cloud..IntensityMax\ ColorB=1
+VO\ Cloud..IntensityMax\ ColorG=1
+VO\ Cloud..IntensityMax\ ColorR=1
+VO\ Cloud..IntensityMax\ Intensity=4096
+VO\ Cloud..IntensityMin\ ColorB=0
+VO\ Cloud..IntensityMin\ ColorG=0
+VO\ Cloud..IntensityMin\ ColorR=0
+VO\ Cloud..IntensityMin\ Intensity=0
+VO\ Cloud..IntensityUse\ full\ RGB\ spectrum=0
+VO\ Cloud.Alpha=1
+VO\ Cloud.Billboard\ Size=0.1
+VO\ Cloud.Color\ Transformer=Intensity
+VO\ Cloud.Decay\ Time=0
+VO\ Cloud.Enabled=1
+VO\ Cloud.Position\ Transformer=XYZ
+VO\ Cloud.Queue\ Size=10
+VO\ Cloud.Selectable=1
+VO\ Cloud.Style=1
+VO\ Cloud.Topic=/vo_cloud
+VO\ Map.Alpha=0.7
+VO\ Map.Draw\ Behind=0
+VO\ Map.Enabled=0
+VO\ Map.Topic=/vo_map
 Zone\ 0.Enabled=1
 Zone\ 0.Marker\ Topic=/shandler_critical_zone_0
 Zone\ 0.Queue\ Size=100
+Zone\ 0.shandler=1
 Zone\ 1.Enabled=1
 Zone\ 1.Marker\ Topic=/shandler_critical_zone_1
 Zone\ 1.Queue\ Size=100
+Zone\ 1.shandler=1
 Zone\ 2.Enabled=1
 Zone\ 2.Marker\ Topic=/shandler_critical_zone_2
 Zone\ 2.Queue\ Size=100
+Zone\ 2.shandler=1
 Zone\ 3.Enabled=1
 Zone\ 3.Marker\ Topic=/shandler_critical_zone_3
 Zone\ 3.Queue\ Size=100
+Zone\ 3.shandler=1
 Zone\ 4.Enabled=1
 Zone\ 4.Marker\ Topic=/shandler_critical_zone_4
 Zone\ 4.Queue\ Size=100
+Zone\ 4.shandler=1
 Zone\ 5.Enabled=1
 Zone\ 5.Marker\ Topic=/shandler_critical_zone_5
 Zone\ 5.Queue\ Size=100
+Zone\ 5.shandler=1
 [Display0]
 ClassName=rviz::GridDisplay
 Name=Grid
@@ -628,60 +667,66 @@ Name=Particles
 ClassName=rviz::MapDisplay
 Name=Map
 [Display16]
-ClassName=rviz::PointCloud2Display
-Name=Inclined laser PC
+ClassName=rviz::MapDisplay
+Name=VO Map
 [Display17]
 ClassName=rviz::PointCloud2Display
-Name=Front laser PC
+Name=Inclined laser PC
 [Display18]
 ClassName=rviz::PointCloud2Display
-Name=Sonar PC
+Name=Front laser PC
 [Display19]
-ClassName=rviz::GridCellsDisplay
-Name=Local Costmap Obstacles
+ClassName=rviz::PointCloud2Display
+Name=Sonar PC
 [Display2]
 ClassName=rviz::PolygonDisplay
 Name=Footprint
 [Display20]
-ClassName=rviz::GridCellsDisplay
-Name=Local Costmap Inflated
+ClassName=rviz::PointCloudDisplay
+Name=VO Cloud
 [Display21]
 ClassName=rviz::GridCellsDisplay
-Name=Global Costmap Obstacles
+Name=Local Costmap Obstacles
 [Display22]
 ClassName=rviz::GridCellsDisplay
-Name=Global Costmap Inflated
+Name=Local Costmap Inflated
 [Display23]
+ClassName=rviz::GridCellsDisplay
+Name=Global Costmap Obstacles
+[Display24]
+ClassName=rviz::GridCellsDisplay
+Name=Global Costmap Inflated
+[Display25]
 ClassName=rviz::CameraDisplay
 Name=Left camera
-[Display24]
+[Display26]
 ClassName=rviz::PointCloudDisplay
 Name=Crowed
-[Display25]
+[Display27]
 ClassName=rviz::PointCloudDisplay
 Name=Costmap SH
-[Display26]
-ClassName=rviz::MarkerDisplay
-Name=Zone 0
-[Display27]
-ClassName=rviz::MarkerDisplay
-Name=Zone 1
 [Display28]
 ClassName=rviz::MarkerDisplay
-Name=Zone 2
+Name=Zone 0
 [Display29]
 ClassName=rviz::MarkerDisplay
-Name=Zone 3
+Name=Zone 1
 [Display3]
 ClassName=rviz::PolygonDisplay
 Name=Footprint Global
 [Display30]
 ClassName=rviz::MarkerDisplay
-Name=Zone 4
+Name=Zone 2
 [Display31]
 ClassName=rviz::MarkerDisplay
-Name=Zone 5
+Name=Zone 3
 [Display32]
+ClassName=rviz::MarkerDisplay
+Name=Zone 4
+[Display33]
+ClassName=rviz::MarkerDisplay
+Name=Zone 5
+[Display34]
 ClassName=rviz::PointCloudDisplay
 Name=EmergencyStop
 [Display4]
