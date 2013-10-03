@@ -51,7 +51,7 @@ Bumper\ PC.Queue\ Size=10
 Bumper\ PC.Selectable=1
 Bumper\ PC.Style=2
 Bumper\ PC.Topic=/bumper_cloud
-Camera\ Config=0.504797 2.53859 26.7199 -2.83514 0.249514 3.02685e-06
+Camera\ Config=0.839797 2.73859 18.1596 -7.13476 0.172475 -1.33277e-06
 Camera\ Type=rviz::XYOrbitViewController
 Costmap\ SH..AxisColorAutocompute\ Value\ Bounds=1
 Costmap\ SH..AxisColorAxis=2
@@ -229,6 +229,17 @@ Global\ plan.ColorG=1
 Global\ plan.ColorR=0.1
 Global\ plan.Enabled=1
 Global\ plan.Topic=/move_base/PalLocalPlanner/global_plan
+Goal.Alpha=1
+Goal.ColorB=0
+Goal.ColorG=0.1
+Goal.ColorR=1
+Goal.Enabled=1
+Goal.Head\ Length=0.3
+Goal.Head\ Radius=0.2
+Goal.Shaft\ Length=1
+Goal.Shaft\ Radius=0.1
+Goal.Shape=0
+Goal.Topic=/move_base/current_goal
 Grid.Alpha=0.5
 Grid.Cell\ Size=0.75
 Grid.ColorB=0.5
@@ -678,21 +689,27 @@ VO\ Map.Topic=/vo_map
 Zone\ 0.Enabled=1
 Zone\ 0.Marker\ Topic=/shandler_critical_zone_0
 Zone\ 0.Queue\ Size=100
+Zone\ 0.shandler=1
 Zone\ 1.Enabled=1
 Zone\ 1.Marker\ Topic=/shandler_critical_zone_1
 Zone\ 1.Queue\ Size=100
+Zone\ 1.shandler=1
 Zone\ 2.Enabled=1
 Zone\ 2.Marker\ Topic=/shandler_critical_zone_2
 Zone\ 2.Queue\ Size=100
+Zone\ 2.shandler=1
 Zone\ 3.Enabled=1
 Zone\ 3.Marker\ Topic=/shandler_critical_zone_3
 Zone\ 3.Queue\ Size=100
+Zone\ 3.shandler=1
 Zone\ 4.Enabled=1
 Zone\ 4.Marker\ Topic=/shandler_critical_zone_4
 Zone\ 4.Queue\ Size=100
+Zone\ 4.shandler=1
 Zone\ 5.Enabled=1
 Zone\ 5.Marker\ Topic=/shandler_critical_zone_5
 Zone\ 5.Queue\ Size=100
+Zone\ 5.shandler=1
 [Display0]
 ClassName=rviz::GridDisplay
 Name=Grid
@@ -751,36 +768,39 @@ Name=Global Costmap Obstacles
 ClassName=rviz::GridCellsDisplay
 Name=Global Costmap Inflated
 [Display26]
+ClassName=rviz::PoseDisplay
+Name=Goal
+[Display27]
 ClassName=rviz::CameraDisplay
 Name=Left camera
-[Display27]
-ClassName=rviz::PointCloudDisplay
-Name=Crowed
 [Display28]
 ClassName=rviz::PointCloudDisplay
-Name=Costmap SH
+Name=Crowed
 [Display29]
-ClassName=rviz::MarkerDisplay
-Name=Zone 0
+ClassName=rviz::PointCloudDisplay
+Name=Costmap SH
 [Display3]
 ClassName=rviz::PolygonDisplay
 Name=Footprint Global
 [Display30]
 ClassName=rviz::MarkerDisplay
-Name=Zone 1
+Name=Zone 0
 [Display31]
 ClassName=rviz::MarkerDisplay
-Name=Zone 2
+Name=Zone 1
 [Display32]
 ClassName=rviz::MarkerDisplay
-Name=Zone 3
+Name=Zone 2
 [Display33]
 ClassName=rviz::MarkerDisplay
-Name=Zone 4
+Name=Zone 3
 [Display34]
 ClassName=rviz::MarkerDisplay
-Name=Zone 5
+Name=Zone 4
 [Display35]
+ClassName=rviz::MarkerDisplay
+Name=Zone 5
+[Display36]
 ClassName=rviz::PointCloudDisplay
 Name=EmergencyStop
 [Display4]
@@ -804,5 +824,5 @@ Name=Base sonars 2
 [Window]
 Height=1026
 Width=1615
-X=1077
-Y=-228
+X=1076
+Y=-256
