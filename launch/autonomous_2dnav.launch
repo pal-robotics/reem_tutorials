@@ -1,6 +1,8 @@
 <launch>
   <!-- Run simulation of simple office world -->
-  <include file="$(find reem_gazebo)/launch/reem_office_world.launch"/>
+  <include file="$(find reem_gazebo)/launch/reem_gazebo.launch">
+    <arg name="world" value="simple_office"/>
+  </include>
   
   <!-- Run navigation system : map_server, localization, planning and control -->
   <include file="$(find reem_gazebo_2dnav)/launch/navigation.launch"/>
