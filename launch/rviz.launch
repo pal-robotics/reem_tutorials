@@ -4,7 +4,7 @@
 
   <!-- Default, send standard REEM URDF model to ROS Param Server  -->
   <group unless="$(arg use_rgbd_sensor)">
-    <node name="reem_rviz" pkg="rviz" type="rviz" args="-d $(find reem_tutorials)/config/reem.vcg" />
+      <node name="reem_rviz" pkg="rviz" type="rviz" args="-d /home/siegfriedgevatter/ros/exploration.vcg" />
   </group>
 
   <!-- Alternatively load REEM URDF with RGBD sensor -->
