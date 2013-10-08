@@ -22,7 +22,36 @@ Base\ sonars\ 2.ColorG=1
 Base\ sonars\ 2.ColorR=0.494118
 Base\ sonars\ 2.Enabled=0
 Base\ sonars\ 2.Topic=/sonar_base_2
-Camera\ Config=0.584797 1.52168 15.1852 -5.99638 0.884355 1.18344e-05
+Bumper\ PC..AxisColorAutocompute\ Value\ Bounds=1
+Bumper\ PC..AxisColorAxis=2
+Bumper\ PC..AxisColorMax\ Value=10
+Bumper\ PC..AxisColorMin\ Value=-10
+Bumper\ PC..AxisColorUse\ Fixed\ Frame=1
+Bumper\ PC..FlatColorColorB=0
+Bumper\ PC..FlatColorColorG=0
+Bumper\ PC..FlatColorColorR=1
+Bumper\ PC..IntensityAutocompute\ Intensity\ Bounds=1
+Bumper\ PC..IntensityChannel\ Name=intensity
+Bumper\ PC..IntensityMax\ ColorB=1
+Bumper\ PC..IntensityMax\ ColorG=1
+Bumper\ PC..IntensityMax\ ColorR=1
+Bumper\ PC..IntensityMax\ Intensity=4096
+Bumper\ PC..IntensityMin\ ColorB=0
+Bumper\ PC..IntensityMin\ ColorG=0
+Bumper\ PC..IntensityMin\ ColorR=0
+Bumper\ PC..IntensityMin\ Intensity=0
+Bumper\ PC..IntensityUse\ full\ RGB\ spectrum=0
+Bumper\ PC.Alpha=1
+Bumper\ PC.Billboard\ Size=0.2
+Bumper\ PC.Color\ Transformer=FlatColor
+Bumper\ PC.Decay\ Time=0
+Bumper\ PC.Enabled=1
+Bumper\ PC.Position\ Transformer=XYZ
+Bumper\ PC.Queue\ Size=10
+Bumper\ PC.Selectable=1
+Bumper\ PC.Style=2
+Bumper\ PC.Topic=/bumper_cloud
+Camera\ Config=0.839797 2.73859 18.1596 -7.13476 0.172475 -1.33277e-06
 Camera\ Type=rviz::XYOrbitViewController
 Costmap\ SH..AxisColorAutocompute\ Value\ Bounds=1
 Costmap\ SH..AxisColorAxis=2
@@ -200,6 +229,17 @@ Global\ plan.ColorG=1
 Global\ plan.ColorR=0.1
 Global\ plan.Enabled=1
 Global\ plan.Topic=/move_base/PalLocalPlanner/global_plan
+Goal.Alpha=1
+Goal.ColorB=0
+Goal.ColorG=0.1
+Goal.ColorR=1
+Goal.Enabled=1
+Goal.Head\ Length=0.3
+Goal.Head\ Radius=0.2
+Goal.Shaft\ Length=1
+Goal.Shaft\ Radius=0.1
+Goal.Shape=0
+Goal.Topic=/move_base/current_goal
 Grid.Alpha=0.5
 Grid.Cell\ Size=0.75
 Grid.ColorB=0.5
@@ -398,6 +438,34 @@ Robot\:\ REEM\ Link\ back_camera_linkAlpha=1
 Robot\:\ REEM\ Link\ back_camera_linkEnabled=1
 Robot\:\ REEM\ Link\ back_camera_linkShow\ Axes=0
 Robot\:\ REEM\ Link\ back_camera_linkShow\ Trail=0
+Robot\:\ REEM\ Link\ base_bumper_01_linkAlpha=1
+Robot\:\ REEM\ Link\ base_bumper_01_linkEnabled=1
+Robot\:\ REEM\ Link\ base_bumper_01_linkShow\ Axes=0
+Robot\:\ REEM\ Link\ base_bumper_01_linkShow\ Trail=0
+Robot\:\ REEM\ Link\ base_bumper_02_linkAlpha=1
+Robot\:\ REEM\ Link\ base_bumper_02_linkEnabled=1
+Robot\:\ REEM\ Link\ base_bumper_02_linkShow\ Axes=0
+Robot\:\ REEM\ Link\ base_bumper_02_linkShow\ Trail=0
+Robot\:\ REEM\ Link\ base_bumper_03_linkAlpha=1
+Robot\:\ REEM\ Link\ base_bumper_03_linkEnabled=1
+Robot\:\ REEM\ Link\ base_bumper_03_linkShow\ Axes=0
+Robot\:\ REEM\ Link\ base_bumper_03_linkShow\ Trail=0
+Robot\:\ REEM\ Link\ base_bumper_04_linkAlpha=1
+Robot\:\ REEM\ Link\ base_bumper_04_linkEnabled=1
+Robot\:\ REEM\ Link\ base_bumper_04_linkShow\ Axes=0
+Robot\:\ REEM\ Link\ base_bumper_04_linkShow\ Trail=0
+Robot\:\ REEM\ Link\ base_bumper_05_linkAlpha=1
+Robot\:\ REEM\ Link\ base_bumper_05_linkEnabled=1
+Robot\:\ REEM\ Link\ base_bumper_05_linkShow\ Axes=0
+Robot\:\ REEM\ Link\ base_bumper_05_linkShow\ Trail=0
+Robot\:\ REEM\ Link\ base_bumper_06_linkAlpha=1
+Robot\:\ REEM\ Link\ base_bumper_06_linkEnabled=1
+Robot\:\ REEM\ Link\ base_bumper_06_linkShow\ Axes=0
+Robot\:\ REEM\ Link\ base_bumper_06_linkShow\ Trail=0
+Robot\:\ REEM\ Link\ base_bumper_07_linkAlpha=1
+Robot\:\ REEM\ Link\ base_bumper_07_linkEnabled=1
+Robot\:\ REEM\ Link\ base_bumper_07_linkShow\ Axes=0
+Robot\:\ REEM\ Link\ base_bumper_07_linkShow\ Trail=0
 Robot\:\ REEM\ Link\ base_cargo_linkAlpha=1
 Robot\:\ REEM\ Link\ base_cargo_linkEnabled=1
 Robot\:\ REEM\ Link\ base_cargo_linkShow\ Axes=0
@@ -585,24 +653,63 @@ Torso\ sonars.ColorG=1
 Torso\ sonars.ColorR=0.498039
 Torso\ sonars.Enabled=0
 Torso\ sonars.Topic=/sonar_torso
+VO\ Cloud..AxisColorAutocompute\ Value\ Bounds=1
+VO\ Cloud..AxisColorAxis=2
+VO\ Cloud..AxisColorMax\ Value=10
+VO\ Cloud..AxisColorMin\ Value=-10
+VO\ Cloud..AxisColorUse\ Fixed\ Frame=1
+VO\ Cloud..FlatColorColorB=1
+VO\ Cloud..FlatColorColorG=1
+VO\ Cloud..FlatColorColorR=1
+VO\ Cloud..IntensityAutocompute\ Intensity\ Bounds=1
+VO\ Cloud..IntensityChannel\ Name=intensity
+VO\ Cloud..IntensityMax\ ColorB=1
+VO\ Cloud..IntensityMax\ ColorG=1
+VO\ Cloud..IntensityMax\ ColorR=1
+VO\ Cloud..IntensityMax\ Intensity=4096
+VO\ Cloud..IntensityMin\ ColorB=0
+VO\ Cloud..IntensityMin\ ColorG=0
+VO\ Cloud..IntensityMin\ ColorR=0
+VO\ Cloud..IntensityMin\ Intensity=0
+VO\ Cloud..IntensityUse\ full\ RGB\ spectrum=0
+VO\ Cloud.Alpha=1
+VO\ Cloud.Billboard\ Size=0.1
+VO\ Cloud.Color\ Transformer=Intensity
+VO\ Cloud.Decay\ Time=0
+VO\ Cloud.Enabled=1
+VO\ Cloud.Position\ Transformer=XYZ
+VO\ Cloud.Queue\ Size=10
+VO\ Cloud.Selectable=1
+VO\ Cloud.Style=1
+VO\ Cloud.Topic=/vo_cloud
+VO\ Map.Alpha=0.7
+VO\ Map.Draw\ Behind=0
+VO\ Map.Enabled=0
+VO\ Map.Topic=/vo_map
 Zone\ 0.Enabled=1
 Zone\ 0.Marker\ Topic=/shandler_critical_zone_0
 Zone\ 0.Queue\ Size=100
+Zone\ 0.shandler=1
 Zone\ 1.Enabled=1
 Zone\ 1.Marker\ Topic=/shandler_critical_zone_1
 Zone\ 1.Queue\ Size=100
+Zone\ 1.shandler=1
 Zone\ 2.Enabled=1
 Zone\ 2.Marker\ Topic=/shandler_critical_zone_2
 Zone\ 2.Queue\ Size=100
+Zone\ 2.shandler=1
 Zone\ 3.Enabled=1
 Zone\ 3.Marker\ Topic=/shandler_critical_zone_3
 Zone\ 3.Queue\ Size=100
+Zone\ 3.shandler=1
 Zone\ 4.Enabled=1
 Zone\ 4.Marker\ Topic=/shandler_critical_zone_4
 Zone\ 4.Queue\ Size=100
+Zone\ 4.shandler=1
 Zone\ 5.Enabled=1
 Zone\ 5.Marker\ Topic=/shandler_critical_zone_5
 Zone\ 5.Queue\ Size=100
+Zone\ 5.shandler=1
 [Display0]
 ClassName=rviz::GridDisplay
 Name=Grid
@@ -628,60 +735,72 @@ Name=Particles
 ClassName=rviz::MapDisplay
 Name=Map
 [Display16]
-ClassName=rviz::PointCloud2Display
-Name=Inclined laser PC
+ClassName=rviz::MapDisplay
+Name=VO Map
 [Display17]
 ClassName=rviz::PointCloud2Display
-Name=Front laser PC
+Name=Inclined laser PC
 [Display18]
 ClassName=rviz::PointCloud2Display
-Name=Sonar PC
+Name=Front laser PC
 [Display19]
-ClassName=rviz::GridCellsDisplay
-Name=Local Costmap Obstacles
+ClassName=rviz::PointCloud2Display
+Name=Bumper PC
 [Display2]
 ClassName=rviz::PolygonDisplay
 Name=Footprint
 [Display20]
-ClassName=rviz::GridCellsDisplay
-Name=Local Costmap Inflated
+ClassName=rviz::PointCloud2Display
+Name=Sonar PC
 [Display21]
-ClassName=rviz::GridCellsDisplay
-Name=Global Costmap Obstacles
+ClassName=rviz::PointCloudDisplay
+Name=VO Cloud
 [Display22]
 ClassName=rviz::GridCellsDisplay
-Name=Global Costmap Inflated
+Name=Local Costmap Obstacles
 [Display23]
+ClassName=rviz::GridCellsDisplay
+Name=Local Costmap Inflated
+[Display24]
+ClassName=rviz::GridCellsDisplay
+Name=Global Costmap Obstacles
+[Display25]
+ClassName=rviz::GridCellsDisplay
+Name=Global Costmap Inflated
+[Display26]
+ClassName=rviz::PoseDisplay
+Name=Goal
+[Display27]
 ClassName=rviz::CameraDisplay
 Name=Left camera
-[Display24]
+[Display28]
 ClassName=rviz::PointCloudDisplay
 Name=Crowed
-[Display25]
+[Display29]
 ClassName=rviz::PointCloudDisplay
 Name=Costmap SH
-[Display26]
-ClassName=rviz::MarkerDisplay
-Name=Zone 0
-[Display27]
-ClassName=rviz::MarkerDisplay
-Name=Zone 1
-[Display28]
-ClassName=rviz::MarkerDisplay
-Name=Zone 2
-[Display29]
-ClassName=rviz::MarkerDisplay
-Name=Zone 3
 [Display3]
 ClassName=rviz::PolygonDisplay
 Name=Footprint Global
 [Display30]
 ClassName=rviz::MarkerDisplay
-Name=Zone 4
+Name=Zone 0
 [Display31]
 ClassName=rviz::MarkerDisplay
-Name=Zone 5
+Name=Zone 1
 [Display32]
+ClassName=rviz::MarkerDisplay
+Name=Zone 2
+[Display33]
+ClassName=rviz::MarkerDisplay
+Name=Zone 3
+[Display34]
+ClassName=rviz::MarkerDisplay
+Name=Zone 4
+[Display35]
+ClassName=rviz::MarkerDisplay
+Name=Zone 5
+[Display36]
 ClassName=rviz::PointCloudDisplay
 Name=EmergencyStop
 [Display4]
@@ -705,5 +824,5 @@ Name=Base sonars 2
 [Window]
 Height=1026
 Width=1615
-X=1078
-Y=-200
+X=1076
+Y=-256
