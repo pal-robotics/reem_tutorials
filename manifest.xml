@@ -9,7 +9,6 @@
 
   <depend package="control_msgs"/>
   <depend package="cv_bridge"/>
-  <depend package="gazebo"/>
   <depend package="opencv2"/>
   <depend package="pal_local_planner"/>
   <depend package="pr2_controllers_msgs"/>
@@ -19,5 +18,7 @@
   <depend package="reem_gazebo"/>
   <depend package="reem_gazebo_2dnav"/>
   <depend package="pal_camera_client"/>
+
+  <rosdep name="gazebo"/>
 
 </package>
