@@ -1,8 +1,7 @@
 <launch>
   <!-- Optional environment variable, to enable RGBD sensor  -->
-  <arg name="use_rgbd_sensor" value="$(optenv USE_RGBD_SENSOR false)" />
-
-
+  <arg name="use_rgbd_sensor" default="$(optenv USE_RGBD_SENSOR false)" />
+  <arg name="config" default="reem" />
 
   <!-- Default, send standard REEM URDF model to ROS Param Server  -->
   <group unless="$(arg use_rgbd_sensor)">

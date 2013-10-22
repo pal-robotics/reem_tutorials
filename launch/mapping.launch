@@ -1,9 +1,7 @@
 <launch>
-   <!-- Run simulation of simple office world -->
-  <include file="$(find reem_gazebo)/launch/reem_gazebo.launch">
-    <arg name="world" value="simple_office"/>
-  </include>
-
-  <!-- Run the mapping node -->
-  <include file="$(find reem_gazebo_2dnav)/launch/gmapping_node.launch"/>
+   <!-- Run mapping in simulation of simple office world -->
+   <include file="$(find reem_gazebo_2dnav)/launch/reem_mapping.launch">
+     <arg name="open_rviz" value="false" />
+     <arg name="gzname" value="gazebo" />
+   </include>
 </launch>

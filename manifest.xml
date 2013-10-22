@@ -15,6 +15,7 @@
   <depend package="reem_arm_navigation"/>
   <depend package="roscpp"/>
   <depend package="sensor_msgs"/>
+  <depend package="pal_karto"/>
   <depend package="reem_gazebo"/>
   <depend package="reem_gazebo_2dnav"/>
   <depend package="pal_camera_client"/>
