@@ -65,6 +65,7 @@
 
 // ROS headers
 #include <ros/ros.h>
+#include <ros/topic.h>
 #include <image_transport/image_transport.h>
 #include <actionlib/client/simple_action_client.h>
 #include <sensor_msgs/CameraInfo.h>
@@ -84,7 +85,6 @@ static const std::string cameraInfoTopic = "stereo/right/camera_info";
 
 // Intrinsic parameters of the camera
 cv::Mat cameraIntrinsics;
-bool intrinsicsReceived;
 
 // Our Action interface type for moving REEM's head, provided as a typedef for convenience
 typedef actionlib::SimpleActionClient<pr2_controllers_msgs::PointHeadAction> PointHeadClient;
@@ -140,7 +140,7 @@ void onMouse( int event, int u, int v, int, void* )
 }
 
 // ROS callback function for topic containing intrinsic parameters of a camera
-void getCameraIntrinsics(const sensor_msgs::CameraInfoConstPtr& msg)
+void getCameraIntrinsics(sensor_msgs::CameraInfoConstPtr& msg)
 {
   cameraIntrinsics = cv::Mat::zeros(3,3,CV_64F);
 
@@ -149,8 +149,6 @@ void getCameraIntrinsics(const sensor_msgs::CameraInfoConstPtr& msg)
   cameraIntrinsics.at<double>(0, 2) = msg->K[2]; //cx
   cameraIntrinsics.at<double>(1, 2) = msg->K[5]; //cy
   cameraIntrinsics.at<double>(2, 2) = 1;
-
-  intrinsicsReceived = true;
 }
 
 // Create a ROS action client to move REEM's head
@@ -190,20 +188,18 @@ int main(int argc, char** argv)
     return EXIT_FAILURE;
   }
 
-  // Get the camera intrinsic parameters from the appropriate ROS topic
-  intrinsicsReceived = false;
-  ros::Subscriber cameraInfoSub = nh.subscribe(cameraInfoTopic, 1, getCameraIntrinsics);
-
   ROS_INFO("Waiting for camera intrinsics ... ");
 
-  while ( ros::ok() && !intrinsicsReceived )
+  sensor_msgs::CameraInfoConstPtr camInfoMsg;
+  camInfoMsg = ros::topic::waitForMessage<sensor_msgs::CameraInfo>(cameraInfoTopic, nh);
+
+  if ( camInfoMsg.get() == NULL )
   {
-    ros::spinOnce();
-    ros::Duration(0.2).sleep();
+    ROS_FATAL("Unable to get camera intrinsic parameters");
+    return EXIT_FAILURE;
   }
 
-  // Unsubscribe the callback associated with this Subscriber
-  cameraInfoSub.shutdown();
+  getCameraIntrinsics(camInfoMsg);
 
   // Create a point head action client to move the REEM's head
   createPointHeadClient( pointHeadClient );

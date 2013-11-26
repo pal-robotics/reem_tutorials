@@ -12,6 +12,7 @@
   <depend package="opencv2"/>
   <depend package="pal_local_planner"/>
   <depend package="pr2_controllers_msgs"/>
+  <depend package="pal_detection_msgs"/>
   <depend package="reem_arm_navigation"/>
   <depend package="roscpp"/>
   <depend package="sensor_msgs"/>
@@ -19,6 +20,9 @@
   <depend package="reem_gazebo"/>
   <depend package="reem_gazebo_2dnav"/>
   <depend package="pal_camera_client"/>
+  <depend package="pal_face_node"/>
+  <depend package="pal_face_database"/>
+
 
   <rosdep name="gazebo"/>
 
