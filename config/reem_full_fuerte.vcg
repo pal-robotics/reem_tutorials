@@ -51,7 +51,7 @@ Bumper\ PC.Queue\ Size=10
 Bumper\ PC.Selectable=1
 Bumper\ PC.Style=2
 Bumper\ PC.Topic=/bumper_cloud
-Camera\ Config=0.839797 2.73859 18.1596 -7.13476 0.172475 -1.33277e-06
+Camera\ Config=0.839797 2.73859 10.8902 -7.13476 0.172475 -1.33277e-06
 Camera\ Type=rviz::XYOrbitViewController
 Costmap\ SH..AxisColorAutocompute\ Value\ Bounds=1
 Costmap\ SH..AxisColorAxis=2
@@ -255,6 +255,35 @@ Grid.OffsetZ=0
 Grid.Plane=0
 Grid.Plane\ Cell\ Count=75
 Grid.Reference\ Frame=/map
+IR\ PC..AxisColorAutocompute\ Value\ Bounds=1
+IR\ PC..AxisColorAxis=2
+IR\ PC..AxisColorMax\ Value=10
+IR\ PC..AxisColorMin\ Value=-10
+IR\ PC..AxisColorUse\ Fixed\ Frame=1
+IR\ PC..FlatColorColorB=0
+IR\ PC..FlatColorColorG=0
+IR\ PC..FlatColorColorR=0.666667
+IR\ PC..IntensityAutocompute\ Intensity\ Bounds=1
+IR\ PC..IntensityChannel\ Name=intensity
+IR\ PC..IntensityMax\ ColorB=1
+IR\ PC..IntensityMax\ ColorG=1
+IR\ PC..IntensityMax\ ColorR=1
+IR\ PC..IntensityMax\ Intensity=4096
+IR\ PC..IntensityMin\ ColorB=0
+IR\ PC..IntensityMin\ ColorG=0
+IR\ PC..IntensityMin\ ColorR=0
+IR\ PC..IntensityMin\ Intensity=0
+IR\ PC..IntensityUse\ full\ RGB\ spectrum=0
+IR\ PC.Alpha=1
+IR\ PC.Billboard\ Size=0.05
+IR\ PC.Color\ Transformer=FlatColor
+IR\ PC.Decay\ Time=0
+IR\ PC.Enabled=1
+IR\ PC.Position\ Transformer=XYZ
+IR\ PC.Queue\ Size=10
+IR\ PC.Selectable=1
+IR\ PC.Style=2
+IR\ PC.Topic=ir_cloud
 Inclined\ laser\ PC..AxisColorAutocompute\ Value\ Bounds=1
 Inclined\ laser\ PC..AxisColorAxis=2
 Inclined\ laser\ PC..AxisColorMax\ Value=10
@@ -478,6 +507,10 @@ Robot\:\ REEM\ Link\ base_footprintAlpha=1
 Robot\:\ REEM\ Link\ base_footprintEnabled=1
 Robot\:\ REEM\ Link\ base_footprintShow\ Axes=0
 Robot\:\ REEM\ Link\ base_footprintShow\ Trail=0
+Robot\:\ REEM\ Link\ base_inclinometer_linkAlpha=1
+Robot\:\ REEM\ Link\ base_inclinometer_linkEnabled=1
+Robot\:\ REEM\ Link\ base_inclinometer_linkShow\ Axes=0
+Robot\:\ REEM\ Link\ base_inclinometer_linkShow\ Trail=0
 Robot\:\ REEM\ Link\ base_laser_linkAlpha=1
 Robot\:\ REEM\ Link\ base_laser_linkEnabled=1
 Robot\:\ REEM\ Link\ base_laser_linkShow\ Axes=0
@@ -594,10 +627,6 @@ Robot\:\ REEM\ Link\ head_2_linkAlpha=1
 Robot\:\ REEM\ Link\ head_2_linkEnabled=1
 Robot\:\ REEM\ Link\ head_2_linkShow\ Axes=0
 Robot\:\ REEM\ Link\ head_2_linkShow\ Trail=0
-Robot\:\ REEM\ Link\ imu_linkAlpha=1
-Robot\:\ REEM\ Link\ imu_linkEnabled=1
-Robot\:\ REEM\ Link\ imu_linkShow\ Axes=0
-Robot\:\ REEM\ Link\ imu_linkShow\ Trail=0
 Robot\:\ REEM\ Link\ stereo_gazebo_l_stereo_camera_frameAlpha=1
 Robot\:\ REEM\ Link\ stereo_gazebo_l_stereo_camera_frameEnabled=1
 Robot\:\ REEM\ Link\ stereo_gazebo_l_stereo_camera_frameShow\ Axes=0
@@ -765,56 +794,59 @@ ClassName=rviz::PolygonDisplay
 Name=Footprint
 [Display20]
 ClassName=rviz::PointCloud2Display
-Name=Sonar PC
+Name=IR PC
 [Display21]
+ClassName=rviz::PointCloud2Display
+Name=Sonar PC
+[Display22]
 ClassName=rviz::PointCloudDisplay
 Name=VO Cloud
-[Display22]
-ClassName=rviz::GridCellsDisplay
-Name=Local Costmap Obstacles
 [Display23]
 ClassName=rviz::GridCellsDisplay
-Name=Local Costmap Inflated
+Name=Local Costmap Obstacles
 [Display24]
 ClassName=rviz::GridCellsDisplay
-Name=Global Costmap Obstacles
+Name=Local Costmap Inflated
 [Display25]
 ClassName=rviz::GridCellsDisplay
-Name=Global Costmap Inflated
+Name=Global Costmap Obstacles
 [Display26]
+ClassName=rviz::GridCellsDisplay
+Name=Global Costmap Inflated
+[Display27]
 ClassName=rviz::PoseDisplay
 Name=Goal
-[Display27]
+[Display28]
 ClassName=rviz::CameraDisplay
 Name=Left camera
-[Display28]
-ClassName=rviz::PointCloudDisplay
-Name=Crowed
 [Display29]
 ClassName=rviz::PointCloudDisplay
-Name=Costmap SH
+Name=Crowed
 [Display3]
 ClassName=rviz::PolygonDisplay
 Name=Footprint Global
 [Display30]
-ClassName=rviz::MarkerDisplay
-Name=Zone 0
+ClassName=rviz::PointCloudDisplay
+Name=Costmap SH
 [Display31]
 ClassName=rviz::MarkerDisplay
-Name=Zone 1
+Name=Zone 0
 [Display32]
 ClassName=rviz::MarkerDisplay
-Name=Zone 2
+Name=Zone 1
 [Display33]
 ClassName=rviz::MarkerDisplay
-Name=Zone 3
+Name=Zone 2
 [Display34]
 ClassName=rviz::MarkerDisplay
-Name=Zone 4
+Name=Zone 3
 [Display35]
 ClassName=rviz::MarkerDisplay
-Name=Zone 5
+Name=Zone 4
 [Display36]
+ClassName=rviz::MarkerDisplay
+Name=Zone 5
+[Display37]
 ClassName=rviz::PointCloudDisplay
 Name=EmergencyStop
 [Display4]
