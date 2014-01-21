@@ -4,9 +4,9 @@ reach_pose:
     - torso_controller
     - right_arm_controller
     - left_arm_controller
-    - head_controller
-    - left_hand_controller
     - right_hand_controller
+    - left_hand_controller
+    - head_controller
 
   poses:
     home:
@@ -86,12 +86,6 @@ reach_pose:
       arm_left_3_joint:  -1.6
       arm_left_4_joint:   1.3
       arm_left_5_joint:   -0.5
-      hand_right_thumb_joint: 0.0
-      hand_right_middle_joint: 0.0
-      hand_right_index_joint: 0.0
-      hand_left_thumb_joint: 0.0
-      hand_left_middle_joint: 0.0
-      hand_left_index_joint: 0.0
 
     raise_left_hand:
       torso_1_joint:      0.0
@@ -157,6 +151,12 @@ reach_pose:
     #  arm_left_5_joint:   1.57168503091409
     #  arm_left_6_joint:   -0.3803622625345
     #  arm_left_7_joint:   -0.581909618849869
+
+    close_right:
+      hand_right_joint:   1.0
+
+    open_right:
+      hand_right_joint:   0.0
 
     left_cabinet:
       torso_1_joint:     0.0

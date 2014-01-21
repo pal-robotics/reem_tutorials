@@ -1,7 +1,6 @@
 <launch>
    <!-- Run mapping in simulation of simple office world -->
-   <include file="$(find reem_gazebo_2dnav)/launch/reem_mapping.launch">
-     <arg name="rviz" value="false" />
-     <arg name="gzname" value="gazebo" />
+   <include file="$(find reem_2dnav_gazebo)/launch/reem_mapping.launch">
+     <arg name="rviz" value="false"/>
    </include>
 </launch>

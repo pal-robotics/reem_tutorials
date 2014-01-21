@@ -156,9 +156,7 @@ int main(int argc, char** argv)
   // Stop enrollment
   ros::ServiceClient stopEnrollmentClient = nh.serviceClient<pal_face_node::StopEnrollment>("pal_face/stop_enrollment");
   pal_face_node::StopEnrollment stopEnrollmentSrv;
-  stopEnrollmentClient.call(stopEnrollmentSrv);
-
-  if ( stopEnrollmentSrv.response.enrollment_ok )
+  if ( stopEnrollmentClient.call(stopEnrollmentSrv) )
   {
     ROS_INFO_STREAM("Face enrollment for person " << name <<
                     " ended. A total of " << stopEnrollmentSrv.response.numFacesEnrolled <<

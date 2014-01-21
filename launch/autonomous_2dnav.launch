@@ -1,4 +1,4 @@
 <launch>
-  <include file="$(find reem_gazebo_2dnav)/launch/reem_navigation.launch"/>
+  <include file="$(find reem_2dnav_gazebo)/launch/reem_navigation.launch"/>
 </launch>
 
