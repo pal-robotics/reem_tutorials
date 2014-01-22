@@ -19,3 +19,13 @@ rosbuild_add_executable(remote_monocular_image_visualization src/remote_monocula
 target_link_libraries(remote_monocular_image_visualization  pal_camera_client)
 rosbuild_add_executable(remote_stereo_image_visualization src/remote_stereo_image_visualization.cpp)
 target_link_libraries(remote_stereo_image_visualization  pal_camera_client)
+
+rosbuild_add_executable(fullbody_person_2d_detection src/fullbody_person_2d_detection.cpp)
+rosbuild_link_boost(fullbody_person_2d_detection signals)
+
+rosbuild_add_executable(face_detection src/face_detection.cpp)
+rosbuild_add_boost_directories()
+rosbuild_link_boost(face_detection signals)
+
+rosbuild_add_executable(face_enrollment src/face_enrollment.cpp)
+rosbuild_add_executable(face_recognition src/face_recognition.cpp)

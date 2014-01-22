@@ -1,12 +1,6 @@
 <launch>
-  <arg name="gzworld" default="empty.world"/>
-  <param name="/use_sim_time" type="bool" value="true"/>
-
-  <!-- start gazebo -->
-  <node name="gazebo" pkg="pal_gazebo_plugins" type="run_gazebo" args="$(find reem_tutorials)/worlds/world_wall_REEM_photo.world" output="screen" />
-
-  <!-- start REEM robot -->
-  <include file="$(find reem_gazebo)/launch/reem.launch"/>
+  <include file="$(find reem_gazebo)/launch/reem_gazebo.launch">
+    <arg name="world" value="world_wall_REEM_photo"/>
+  </include>
 </launch>
-
 

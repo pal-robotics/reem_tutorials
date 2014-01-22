@@ -1,7 +1,7 @@
 /*
  * Software License Agreement (Modified BSD License)
  *
- *  Copyright (c) 2012, PAL Robotics, S.L.
+ *  Copyright (c) 2013, PAL Robotics, S.L.
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -45,11 +45,14 @@
  *
  *   $ roslaunch reem_tutorials reem_look_to_point_world.launch
  *
- * 2) Launch the application:
+ * 2) Launch the head controllers:
+ *   $ roslaunch reem_controller_configuration joint_trajectory_controllers.launch
+ *
+ * 3) Launch the application:
  *
  *   $ rosrun reem_tutorials look_to_point
  *
- * 3) Click on image pixels to make REEM look towards that direction
+ * 4) Click on image pixels to make REEM look towards that direction
  *
  */
 
@@ -74,10 +77,10 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-static const std::string windowName      = "REEM left eye";
+static const std::string windowName      = "REEM right eye";
 static const std::string cameraFrame     = "/stereo_optical_frame";
-static const std::string imageTopic      = "/stereo/left/image";
-static const std::string cameraInfoTopic = "/stereo/left/camera_info";
+static const std::string imageTopic      = "stereo/right/image";
+static const std::string cameraInfoTopic = "stereo/right/camera_info";
 
 // Intrinsic parameters of the camera
 cv::Mat cameraIntrinsics;
@@ -153,7 +156,9 @@ void getCameraIntrinsics(const sensor_msgs::CameraInfoConstPtr& msg)
 // Create a ROS action client to move REEM's head
 void createPointHeadClient(PointHeadClientPtr& actionClient)
 {
-  actionClient.reset( new PointHeadClient("/head_traj_controller/point_head_action") );
+  ROS_INFO("Creating action client to head controller ...");
+
+  actionClient.reset( new PointHeadClient("/head_controller/point_head_action") );
 
   int iterations = 0, max_iterations = 3;
   // Wait for head controller action server to come up
@@ -186,8 +191,8 @@ int main(int argc, char** argv)
   }
 
   // Get the camera intrinsic parameters from the appropriate ROS topic
-  ros::Subscriber cameraInfoSub = nh.subscribe(cameraInfoTopic, 1, getCameraIntrinsics);
   intrinsicsReceived = false;
+  ros::Subscriber cameraInfoSub = nh.subscribe(cameraInfoTopic, 1, getCameraIntrinsics);
 
   ROS_INFO("Waiting for camera intrinsics ... ");
 
