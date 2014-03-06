@@ -10,7 +10,7 @@ import sys
 import rospy
 import actionlib
 
-from moveit_msgs.msg import MoveGroupGoal, MoveGroupAction, JointConstraint, Constraints, MoveGroupResult, MoveItErrorCodes
+from moveit_msgs.msg import MoveGroupGoal, MoveGroupAction, JointConstraint, Constraints, MoveItErrorCodes
 # Dictionary to get the string representing the error code, very handy
 moveit_error_dict = {}
 for name in MoveItErrorCodes.__dict__.keys():
