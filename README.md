@@ -1,44 +1,51 @@
-reem_tutorials
-==============
+# reem_tutorials
 
 Basic tutorials to get familiar with the REEM robot in a simulated environment.
 
-With this package you will be able to test the movement of the arms and the head.
+## Requirements
 
-Having the REEM Simulation installed (you can follow this instructions:
-https://docs.google.com/document/d/1bLLZQEKBLMJMEl6Npb8MRARDOnQFvQUXMhHtsjF-BxA/edit?usp=sharing ) you can use this package doing:
+The following repositories are required to run the examples in simulation:
 
-Launch reem model in gazebo:
-roslaunch reem_gazebo reem_empty_world.launch
+* reem_simulation (https://github.com/pal-robotics/reem_simulation)
+* pal_face_detector_opencv (https://github.com/jordi-pages/pal_face_detector_opencv)
 
-Launch rviz (if things look wrong maybe you need to change to /base_link from /map the fixed frame):
-rosrun rviz rviz -d `rospack find reem_tutorials`/config/reem.vcg
+## How to run
 
-Load some params:
-rosparam load `rospack find reem_tutorials`/config/reem_poses.yaml
+### Look to point
 
-Try to reach some poses:
-rosrun reem_tutorials reach_pose init
-rosrun reem_tutorials reach_pose surrender
-rosrun reem_tutorials reach_pose home
+In order to run launch REEM in simulation as follows:
 
+```
+roslaunch reem_gazebo reem_gazebo.launch world:=simple_office_people
+```
 
-Launch arm navigation:
-roslaunch reem_arm_navigation reem_arm_navigation.launch
+and then run the example:
 
-Try to reach some poses:
-rosrun reem_tutorials reach_pose hands_up
-rosrun reem_tutorials reach_pose raise_left_hand
-rosrun reem_tutorials move_left_arm_joint_goal
-
-
-
-Another demo, launch a different reem world:
-roslaunch reem_tutorials reem_look_to_point_world.launch
-rosparam load `rospack find reem_tutorials`/config/reem_poses.yaml
-rosrun reem_tutorials reach_pose home
-
-Launch the look to point demo, click where you want the robot to look at:
+```
 rosrun reem_tutorials look_to_point
+``` 
 
+a window showing the images from one of the frontal cameras of REEM will come up. You may click in the image to make REEM to look towards that direction.
+
+### Face detections
+
+This example shows how to subscribe to a _pal_detection_msgs::FaceDetections_ topic and show detected faces.
+
+You may use the following simulation:
+
+```
+roslaunch reem_gazebo reem_gazebo.launch world:=meeting_a_female
+```
+
+Then launch the face detector:
+
+```
+roslaunch pal_face_detector_opencv detector.launch
+``` 
+
+and finally the example:
+
+```
+rosrun reem_tutorials face_detection
+```
 
