@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<package>
+  <name>reem_tutorials</name>
+  <version>0.0.0</version>
+  <description>Collection of programs showing different REEM functionalities</description>
+
+  <maintainer email="jordi.pages@pal-robotics.com">Jordi Pages</maintainer>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>control_msgs</build_depend>
+  <build_depend>cv_bridge</build_depend>
+  <build_depend>joint_state_publisher</build_depend>
+  <build_depend>moveit_msgs</build_depend>
+  <build_depend>moveit_ros_planning_interface</build_depend>
+  <build_depend>pal_detection_msgs</build_depend>
+  <build_depend>robot_state_publisher</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <run_depend>control_msgs</run_depend>
+  <run_depend>cv_bridge</run_depend>
+  <run_depend>joint_state_publisher</run_depend>
+  <run_depend>moveit_msgs</run_depend>
+  <run_depend>moveit_ros_planning_interface</run_depend>
+  <run_depend>pal_detection_msgs</run_depend>
+  <run_depend>robot_state_publisher</run_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>sensor_msgs</run_depend>
+
+
+  <!-- The export tag contains other, unspecified, tags -->
+  <export>
+    <!-- You can specify that this package is a metapackage here: -->
+    <!-- <metapackage/> -->
+
+    <!-- Other tools can request additional information be placed here -->
+
+  </export>
+</package>
