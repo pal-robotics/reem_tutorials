@@ -45,14 +45,11 @@
  *
  *   $ roslaunch reem_tutorials reem_look_to_point_world.launch
  *
- * 2) Launch the head controllers:
- *   $ roslaunch reem_controller_configuration joint_trajectory_controllers.launch
- *
- * 3) Launch the application:
+ * 2) Launch the application:
  *
  *   $ rosrun reem_tutorials look_to_point
  *
- * 4) Click on image pixels to make REEM look towards that direction
+ * 3) Click on image pixels to make REEM look towards that direction
  *
  */
 
@@ -77,10 +74,10 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-static const std::string windowName      = "REEM right eye";
+static const std::string windowName      = "REEM left eye";
 static const std::string cameraFrame     = "/stereo_optical_frame";
-static const std::string imageTopic      = "stereo/right/image";
-static const std::string cameraInfoTopic = "stereo/right/camera_info";
+static const std::string imageTopic      = "/stereo/left/image";
+static const std::string cameraInfoTopic = "/stereo/left/camera_info";
 
 // Intrinsic parameters of the camera
 cv::Mat cameraIntrinsics;
