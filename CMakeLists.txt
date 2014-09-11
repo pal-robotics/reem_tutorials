@@ -1,31 +1,76 @@
-cmake_minimum_required(VERSION 2.4.6)
-include($ENV{ROS_ROOT}/core/rosbuild/rosbuild.cmake)
+cmake_minimum_required(VERSION 2.8.3)
+project(reem_tutorials)
 
-rosbuild_init()
+find_package(catkin REQUIRED COMPONENTS
+  actionlib
+  control_msgs
+  cv_bridge
+  geometry_msgs
+  image_transport
+  message_filters
+  moveit_ros_planning_interface
+  pal_camera_client
+  pal_detection_msgs
+  pal_face_database
+  roscpp
+  sensor_msgs
+)
 
-#set the default path for built executables to the "bin" directory
-set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
+find_package(Boost REQUIRED)
+find_package(OpenCV REQUIRED)
 
-#set the default path for built libraries to the "lib" directory
-set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
+catkin_package()
 
-rosbuild_add_boost_directories()
+###########
+## Build ##
+###########
 
-rosbuild_add_executable(reach_pose                           src/reach_pose.cpp)
-rosbuild_add_executable(move_left_arm_joint_goal             src/move_left_arm_joint_goal.cpp)
-rosbuild_add_executable(move_right_arm_torso_pose_goal       src/move_right_arm_torso_pose_goal.cpp)
-rosbuild_add_executable(look_to_point                        src/look_to_point.cpp)
-rosbuild_add_executable(remote_monocular_image_visualization src/remote_monocular_image_visualization.cpp)
-target_link_libraries(remote_monocular_image_visualization  pal_camera_client)
-rosbuild_add_executable(remote_stereo_image_visualization src/remote_stereo_image_visualization.cpp)
-target_link_libraries(remote_stereo_image_visualization  pal_camera_client)
+include_directories(
+  ${Boost_INCLUDE_DIRS}
+  ${OpenCV_INCLUDE_DIRS}
+  ${catkin_INCLUDE_DIRS}
+)
 
-rosbuild_add_executable(fullbody_person_2d_detection src/fullbody_person_2d_detection.cpp)
-rosbuild_link_boost(fullbody_person_2d_detection signals)
+set(targets
+  reach_pose
+  move_left_arm_joint_goal
+  move_right_arm_torso_pose_goal
+  look_to_point
+  remote_monocular_image_visualization
+  remote_stereo_image_visualization
+  fullbody_person_2d_detection
+  face_detection
+  face_enrollment
+  face_recognition
+)
 
-rosbuild_add_executable(face_detection src/face_detection.cpp)
-rosbuild_add_boost_directories()
-rosbuild_link_boost(face_detection signals)
+foreach(target ${targets})
+  add_executable(${target} src/${target}.cpp)
+  target_link_libraries(${target} ${catkin_LIBRARIES} ${OpenCV_LIBS})
+endforeach()
 
-rosbuild_add_executable(face_enrollment src/face_enrollment.cpp)
-rosbuild_add_executable(face_recognition src/face_recognition.cpp)
+
+#############
+## Install ##
+#############
+
+install(PROGRAMS
+  scripts/reach_pose_moveit.py
+  scripts/sonar_base_1.sh
+  scripts/sonar_base_2.sh
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
+install(TARGETS ${targets}
+  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
+install(DIRECTORY launch
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+)
+
+install(DIRECTORY config
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+)
