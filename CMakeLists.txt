@@ -31,7 +31,7 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-set(targets
+set(progs
   reach_pose
   move_left_arm_joint_goal
   move_right_arm_torso_pose_goal
@@ -44,9 +44,12 @@ set(targets
   face_recognition
 )
 
-foreach(target ${targets})
-  add_executable(${target} src/${target}.cpp)
+foreach(prog ${progs})
+  set(target reem_tuto_${prog})
+  add_executable(${target} src/${prog}.cpp)
+  set_target_properties(${target} PROPERTIES OUTPUT_NAME ${prog})
   target_link_libraries(${target} ${catkin_LIBRARIES} ${OpenCV_LIBS})
+  list(APPEND targets ${target})
 endforeach()
 
 
