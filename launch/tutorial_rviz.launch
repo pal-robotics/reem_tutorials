@@ -1,0 +1,3 @@
+<launch>
+   <node name="tutorial_rviz" pkg="rviz" type="rviz" args="-d $(find reem_tutorials)/config/reem_tutorial.rviz" />
+</launch>
