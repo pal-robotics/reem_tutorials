@@ -87,7 +87,7 @@ int main(int argc, char** argv)
   // Init the ROS node
   ros::init(argc, argv, "remote_stereo_image_visualization");
 
-  ROS_INFO("Starting remote_stereo_image_visualization application ...");
+  ROS_INFO_STREAM("Starting " << ros::this_node::getName() << " application ...");
 
   // Precondition: Valid clock
   ros::NodeHandle nh;
