@@ -85,9 +85,9 @@ void printCalibrationData(const std::string& eye, const sensor_msgs::CameraInfo&
 int main(int argc, char** argv)
 {
   // Init the ROS node
-  ros::init(argc, argv, "remote_monocular_image_visualization");
+  ros::init(argc, argv, "remote_stereo_image_visualization");
 
-  ROS_INFO("Starting remote_monocular_image_visualization application ...");
+  ROS_INFO("Starting remote_stereo_image_visualization application ...");
 
   // Precondition: Valid clock
   ros::NodeHandle nh;
