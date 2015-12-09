@@ -214,8 +214,12 @@ int main(int argc, char** argv)
   // Define ROS topic from where REEM publishes images
   image_transport::ImageTransport it(nh);
 
+  // use compressed image transport to use less network bandwidth
+  image_transport::TransportHints transportHint("compressed");
+
   ROS_INFO_STREAM("Subscribing to " << imageTopic << " ...");
-  image_transport::Subscriber sub = it.subscribe(imageTopic, 1, imageCallback);
+  image_transport::Subscriber sub = it.subscribe(imageTopic, 1,
+                                                 imageCallback, transportHint);
 
   //enter a loop that processes ROS callbacks. Press CTRL+C to exit the loop
   ros::spin();
