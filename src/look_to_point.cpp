@@ -112,7 +112,7 @@ void onMouse( int event, int u, int v, int, void* )
   geometry_msgs::PointStamped pointStamped;
 
   pointStamped.header.frame_id = cameraFrame;
-  pointStamped.header.stamp    = ros::Time::now();
+  //pointStamped.header.stamp    = ros::Time::now();
 
   //compute normalized coordinates of the selected pixel
   double x = ( u  - cameraIntrinsics.at<double>(0,2) )/ cameraIntrinsics.at<double>(0,0);
