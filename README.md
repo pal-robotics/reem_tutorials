@@ -22,6 +22,7 @@ roslaunch reem_gazebo reem_gazebo.launch world:=simple_office_people
 and then run the example:
 
 ```
+roslaunch head_action head_action.launch
 rosrun reem_tutorials look_to_point
 ``` 
 
