@@ -7,7 +7,7 @@ Basic tutorials to get familiar with the REEM robot in a simulated environment.
 The following repositories are required to run the examples in simulation:
 
 * reem_simulation (https://github.com/pal-robotics/reem_simulation)
-* pal_face_detector_opencv (https://github.com/jordi-pages/pal_face_detector_opencv)
+* pal_face_detector_opencv (https://github.com/pal-robotics/pal_face_detector_opencv)
 
 ## How to run
 
