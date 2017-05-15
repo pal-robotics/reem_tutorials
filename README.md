@@ -40,7 +40,7 @@ roslaunch reem_gazebo reem_gazebo.launch world:=meeting_a_female
 Then launch the face detector:
 
 ```
-roslaunch pal_face_detector_opencv detector.launch
+roslaunch pal_face_detector_opencv detector.launch image_topic:=/stereo/left/image
 ``` 
 
 and finally the example:
